@@ -1,13 +1,15 @@
- import Cart from "./Cart";
+import Cart from "./Cart";
 import LoginModal from "./LoginModal";
 
 function Header(props) {
   return (
-    <div className="w-full h-[10rem]
+    <div
+      className="w-full h-[10rem]
                   bg-[#232323] text-white 
                   sm:h-auto
                   flex items-center justify-center
-                  ">
+                  "
+    >
       <div className="h-20 md:h-32 flex items-center justify-center">
         <span className="px-5 text-3xl md:text-5xl md:mr-16">Effect:</span>
 

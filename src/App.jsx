@@ -12,8 +12,6 @@ function App() {
     setCartItemsNum(cartItemsNum + 1);
   };
 
-  // Rest of the code remains the same...
-
   return (
     <main className="bg-[#f7fafc] w-full h-screen">
       <Header cartItemsNum={cartItemsNum} />
