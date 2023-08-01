@@ -1,43 +1,52 @@
-import React from "react";
+// salesItemsRow Component
 
 const products = [
   {
     id: 1,
-    name: 'Earthen Bottle',
-    href: '#',
-    price: '$48',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+    name: "Earthen Bottle",
+    href: "#",
+    price: "$48",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+    imageAlt:
+      "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
   },
   {
     id: 2,
-    name: 'Nomad Tumbler',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+    name: "Nomad Tumbler",
+    href: "#",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+    imageAlt:
+      "Olive drab green insulated bottle with flared screw lid and flat top.",
   },
   {
     id: 3,
-    name: 'Focus Paper Refill',
-    href: '#',
-    price: '$89',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
+    name: "Focus Paper Refill",
+    href: "#",
+    price: "$89",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+    imageAlt:
+      "Person using a pen to cross a task off a productivity paper card.",
   },
   {
     id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
+    name: "Machined Mechanical Pencil",
+    href: "#",
+    price: "$35",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+    imageAlt:
+      "Hand holding black machined steel mechanical pencil with brass tip and top.",
   },
-
-  // More products...
 ];
+const handleAddToCart = (product) => {
+  props.handleCartItemsNumChange(product);
+};
 
-export default function SaleItemsRow() {
+function SaleItemsRow(props) {
   return (
     <div className="bg-white rounded-lg">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -48,21 +57,31 @@ export default function SaleItemsRow() {
             <a key={product.id} href={product.href} className="group relative">
               <div className="aspect-w-3 aspect-h-4 overflow-hidden bg-gray-200 rounded-lg">
                 <img
+                  onClick={props.handleCartItemsNumChange}
                   src={product.imageSrc}
                   alt={product.imageAlt}
                   className="object-cover object-center w-full h-full group-hover:opacity-80 transition-opacity duration-300"
                 />
               </div>
               <div className="mt-4">
-                <h3 className="text-lg font-semibold text-gray-700">{product.name}</h3>
+                <h3 className="text-lg font-semibold text-gray-700">
+                  {product.name}
+                </h3>
                 <div className="mt-1 flex items-center justify-between">
-                    <p className="text-xl font-bold text-gray-900">{product.price}</p>
-                    <button 
-                        
-                        className=" bg-neutral-800 py-1 px-4 rounded-lg text-white
-                    ">  Add to cart   </button>
+                  <p className="text-xl font-bold text-gray-900">
+                    {product.price}
+                  </p>
+                  <button
+                    onClick={props.handleCartItemsNumChange}
+                    className=" bg-neutral-800 py-1 px-4 rounded-lg
+                                text-white font-mono
+                                hover:bg-neutral-600
+                    "
+                  >
+                    {" "}
+                    Add to cart{" "}
+                  </button>
                 </div>
-                
               </div>
             </a>
           ))}
@@ -71,3 +90,4 @@ export default function SaleItemsRow() {
     </div>
   );
 }
+export default SaleItemsRow;

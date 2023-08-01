@@ -1,23 +1,19 @@
-import { useState } from "react";
 import Cart from "./Cart";
 import LoginModal from "./LoginModal";
 
-function Header() {
-  
-  const [cartItemsNum, setCartItemsNum] = useState(0)
-
-  const handleCartItemsNumChange = () => {
-    setCartItemsNum(cartItemsNum + 1)
-  }
-
+function Header(props) {
   return (
-    <div className="text-white w-full h-1/6 bg-[#232323] flex">
-      <div className="w-full h-full flex items-center justify-center">
-        <span className="px-5 text-5xl mr-16">Effect:</span>
+    <div className="w-full h-[10rem]
+                  bg-[#232323] text-white 
+                  sm:h-auto
+                  flex items-center justify-center
+                  ">
+      <div className="h-20 md:h-32 flex items-center justify-center">
+        <span className="px-5 text-3xl md:text-5xl md:mr-16">Effect:</span>
 
-        <div className="group flex items-center relative leading-[28px] w-[650px]">
+        <div className="group flex items-center relative w-full md:w-[650px] h-12 md:h-16">
           <svg
-            className="absolute left-[1rem] fill-[#9e9ea7] w-4 h-4"
+            className="absolute left-3 md:left-[1.75rem] fill-[#9e9ea7] w-4 h-4 md:w-5 md:h-5"
             aria-hidden="true"
             viewBox="0 0 24 24"
           >
@@ -26,16 +22,21 @@ function Header() {
             </g>
           </svg>
           <input
-            className="w-full h-16 px-4 pl-10 border-2 border-transparent rounded-lg outline-none bg-gray-200 text-gray-900 transition duration-300 placeholder:text-gray-600 focus:outline-none hover:outline-none focus:border-pink-400 hover:border-pink-400 focus:bg-white hover:bg-white focus:shadow-outline-pink hover:shadow-outline-pink"
+            className="w-full h-full px-3 md:px-4 pl-8 md:pl-10 border-2 border-transparent rounded-lg outline-none bg-gray-200 text-gray-900 transition duration-300 placeholder:text-gray-600 focus:outline-none hover:outline-none focus:border-pink-400 hover:border-pink-400 focus:bg-white hover:bg-white focus:shadow-outline-pink hover:shadow-outline-pink"
             placeholder="Search for anything"
             type="search"
           />
         </div>
 
-        <a className="font-bold px-6" href="#">
-          <Cart/> ({cartItemsNum})
+        <a className="font-bold px-2 md:px-6" href="#">
+          <div className="flex items-center">
+            <Cart />
+            <div className="hidden md:block bg-red-900 px-2 py-1 rounded-lg ml-1">
+              {props.cartItemsNum}
+            </div>
+          </div>
         </a>
-        <a className="font-bold px-6" href="#">
+        <a className="font-bold px-2 md:px-6" href="#">
           <LoginModal />
         </a>
       </div>
