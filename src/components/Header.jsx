@@ -1,4 +1,4 @@
-import Cart from "./Cart";
+ import Cart from "./Cart";
 import LoginModal from "./LoginModal";
 
 function Header(props) {
